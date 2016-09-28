@@ -45,7 +45,7 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);*/
-		var ref = window.open('http://greengift.vn', '_blank', 'location=no');
+		var ref = window.open('http://greengift.vn', '_blank', 'location=no,zoom=no');
          ref.addEventListener('loadstart', function(event) { console.log('start: ' + event.url); });
          ref.addEventListener('loadstop', function(event) { console.log('stop: ' + event.url); });
          ref.addEventListener('loaderror', function(event) { console.log('error: ' + event.message); });
