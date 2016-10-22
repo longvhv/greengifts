@@ -53,6 +53,9 @@ var app = {
 			if(data.registrationId)
 			{
 				app.registrationId = data.registrationId;
+				push.subscribe('topics/greengift/global', function() {
+				}, function(e) {
+				});
 			}
 			// data.registrationId
 			app.receivedEvent('deviceready');
