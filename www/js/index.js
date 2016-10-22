@@ -17,6 +17,7 @@
  * under the License.
  */
 var app = {
+	registrationId: '',
     // Application Constructor
     initialize: function() {
         this.bindEvents();
@@ -33,7 +34,30 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-        app.receivedEvent('deviceready');
+		var push = PushNotification.init({
+			android: {
+				senderID: "278576349838"
+			},
+			browser: {
+				pushServiceURL: 'http://push.api.phonegap.com/v1/push'
+			},
+			ios: {
+				alert: "true",
+				badge: "true",
+				sound: "true"
+			},
+			windows: {}
+		});
+		
+		push.on('registration', function(data) {
+			if(data.registrationId)
+			{
+				app.registrationId = data.registrationId;
+			}
+			// data.registrationId
+			app.receivedEvent('deviceready');
+		});
+        
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {
@@ -45,7 +69,8 @@ var app = {
         receivedElement.setAttribute('style', 'display:block;');
 
         console.log('Received Event: ' + id);*/
-		var ref = window.open('http://greengift.vn', '_blank', 'location=no,zoom=no');
+		
+		var ref = window.open('http://greengift.vn/?androidRegistrationId='+app.registrationId, '_blank', 'location=no,zoom=no');
          ref.addEventListener('loadstart', function(event) { console.log('start: ' + event.url); });
          ref.addEventListener('loadstop', function(event) { console.log('stop: ' + event.url); });
          ref.addEventListener('loaderror', function(event) { console.log('error: ' + event.message); });
