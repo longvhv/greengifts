@@ -34,33 +34,42 @@ var app = {
     // The scope of 'this' is the event. In order to call the 'receivedEvent'
     // function, we must explicitly call 'app.receivedEvent(...);'
     onDeviceReady: function() {
-		var push = PushNotification.init({
-			android: {
-				senderID: "278576349838"
-			},
-			browser: {
-				pushServiceURL: 'http://push.api.phonegap.com/v1/push'
-			},
-			ios: {
-				alert: "true",
-				badge: "true",
-				sound: "true"
-			},
-			windows: {}
-		});
-		
-		push.on('registration', function(data) {
-			if(data.registrationId)
-			{
-				app.registrationId = data.registrationId;
-				push.subscribe('topics/greengift/global', function() {
-				}, function(e) {
-				});
-			}
-			// data.registrationId
-			app.receivedEvent('deviceready');
-		});
-        
+		try{
+			var push = PushNotification.init({
+				android: {
+					senderID: "278576349838"
+				},
+				browser: {
+					pushServiceURL: 'http://push.api.phonegap.com/v1/push'
+				},
+				ios: {
+					senderID: "278576349838",
+					alert: "true",
+					badge: "true",
+					sound: "true"
+				},
+				windows: {}
+			});
+			
+			push.on('registration', function(data) {
+				if(data.registrationId)
+				{
+					app.registrationId = data.registrationId;
+					push.subscribe('topics/greengift/global', function() {
+					}, function(e) {
+					});
+				}
+				// data.registrationId
+				app.receivedEvent('deviceready');
+			});
+			push.on('error', function(e) {
+				var ref = window.open('http://demo.greengift.vn/?page=Mobile.home', '_blank', 'location=no,zoom=no');
+			});
+		}
+		catch(e)
+		{
+			var ref = window.open('http://demo.greengift.vn/?page=Mobile.home', '_blank', 'location=no,zoom=no');
+		}
     },
     // Update DOM on a Received Event
     receivedEvent: function(id) {

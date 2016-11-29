@@ -4,7 +4,7 @@
 <widget xmlns     = "http://www.w3.org/ns/widgets"
         xmlns:gap = "http://phonegap.com/ns/1.0"
         id        = "vn.greengift"
-        version   = "1.0.2">
+        version   = "1.0.21">
 
     <name>GreenGift</name>
 
@@ -49,7 +49,7 @@
     <plugin name="cordova-plugin-statusbar"           source="npm" spec="~2.1.2" />
     <plugin name="cordova-plugin-vibration"           source="npm" spec="~2.1.0" />
     <plugin name="cordova-plugin-whitelist"           source="npm" spec="~1.2.1" />
-	<plugin name="phonegap-plugin-push"           source="npm" spec="~1.4.5">
+	<plugin name="phonegap-plugin-push"           source="npm" spec="1.6.0">
 		<param name="SENDER_ID" value="278576349838" />
 	</plugin>
 
