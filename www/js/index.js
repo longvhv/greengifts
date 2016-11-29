@@ -82,10 +82,10 @@ var app = {
 
         console.log('Received Event: ' + id);*/
 		
-		var ref = window.open('http://demo.greengift.vn/?page=Mobile.home&androidRegistrationId='+app.registrationId, '_blank', 'location=no,zoom=no');
-         ref.addEventListener('loadstart', function(event) { console.log('start: ' + event.url); });
+		var ref = window.open('http://demo.greengift.vn/?page=Mobile.home&amp;androidRegistrationId='+app.registrationId, '_blank', 'location=no,zoom=no');
+         /*ref.addEventListener('loadstart', function(event) { console.log('start: ' + event.url); });
          ref.addEventListener('loadstop', function(event) { console.log('stop: ' + event.url); });
          ref.addEventListener('loaderror', function(event) { console.log('error: ' + event.message); });
-         ref.addEventListener('exit', function(event) { console.log(event.type); });
+         ref.addEventListener('exit', function(event) { console.log(event.type); });*/
     }
 };
