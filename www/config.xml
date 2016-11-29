@@ -26,7 +26,7 @@
 
     <!-- Define a specific version of PhoneGap to build into your app. -->
     <!-- <preference name="phonegap-version"       value="cli-6.0.0" /> -->
-	<preference name="android-build-tool" value="gradle" />
+	<!-- preference name="android-build-tool" value="gradle" /-->
     <!-- Plugins -->
     <!-- Core plugins -->
     <plugin name="cordova-plugin-battery-status"      source="npm" spec="~1.1.1" />
@@ -49,9 +49,7 @@
     <plugin name="cordova-plugin-statusbar"           source="npm" spec="~2.1.2" />
     <plugin name="cordova-plugin-vibration"           source="npm" spec="~2.1.0" />
     <plugin name="cordova-plugin-whitelist"           source="npm" spec="~1.2.1" />
-	<plugin name="phonegap-plugin-push"           source="npm" spec="1.6.0">
-		<param name="SENDER_ID" value="278576349838" />
-	</plugin>
+	<plugin name="phonegap-plugin-push"           source="npm" spec="1.6.0"/>
 
     <!-- Define app icon and splashscreen for each platform. -->
     <icon src="icon.png" />
